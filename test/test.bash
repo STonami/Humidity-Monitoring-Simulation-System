@@ -5,7 +5,7 @@
 dir=~
 [ "$1" != "" ] && dir="$1"
 
-cd ~/ros2_ws
+cd $dir/ros2_ws
 colcon build
 if [ $? -ne 0 ]; then
     echo "Build failed"
@@ -16,8 +16,7 @@ source install/setup.bash
 source ~/.bashrc
 
 timeout 20 ros2 launch mypkg humidity_monitoring.launch.py > /tmp/mypkg.log 2>&1
-grep 'humidity_subscriber' /tmp/mypkg.log
-if [ $? -eq 0 ]; then
+if grep 'humidity_subscriber' /tmp/mypkg.log; then
     echo "Test passed!"
     exit 0
 else

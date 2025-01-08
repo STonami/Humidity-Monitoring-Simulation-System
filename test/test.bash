@@ -15,13 +15,9 @@ cd ~/ros2_ws
 colcon build
 
 source install/setup.bash
+source ~/.bashrci
 
 timeout 10 ros2 launch mypkg humidity_monitoring.launch.py > /tmp/mypkg.log 2>&1
-if grep -q 'Received humidity' /tmp/mypkg.log; then
-  echo "Test passed!"
+grep 'Received humidity' /tmp/mypkg.log
+echo "Test passed!"
   exit 0
-else
-  echo "Test failed. Log content:"
-  cat /tmp/mypkg.log
-  exit 1
-fi

@@ -1,3 +1,7 @@
+#!/bin/bash
+# SPDX-FileCopyrightText: 2025 Tonami Seki
+# SPDX-License-Identifier: BSD-3-Clause
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float32

@@ -1,15 +1,42 @@
 name: test
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.7","3.8","3.9","3.10"]
+        python-version: ["3.7", "3.8", "3.9", "3.10"]
+
     steps:
-    - uses: actions/checkout@v3
-    - name: All test
-      run: |
-           rsync -av ./ /root/ros2_ws/src/mypkg/
-           cd /root/ros2_ws
-           bash -xv ./src/mypkg/test/test.bash /root
+      - uses: actions/checkout@v3
+
+      - name: Setup ROS 2 Humble
+        run: |
+          sudo apt update && sudo apt install -y \
+            software-properties-common \
+            gnupg2 \
+            lsb-release \
+            curl
+          sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+          curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
+          sudo apt update && sudo apt install -y ros-humble-desktop python3-colcon-common-extensions
+
+      - name: Install dependencies
+        run: |
+          sudo apt install -y python3-pip
+          pip3 install -r ./requirements.txt
+          sudo rosdep init || true
+          rosdep update
+          rosdep install --from-paths ./ --ignore-src -r -y
+
+      - name: Run tests
+        run: |
+          mkdir -p ~/ros2_ws/src/mypkg
+          rsync -av ./ ~/ros2_ws/src/mypkg/
+          cd ~/ros2_ws
+          colcon build
+          source /opt/ros/humble/setup.bash
+          bash -xv ./src/mypkg/test/test.bash ~/ros2_ws
+

@@ -1,0 +1,3 @@
+[console_scripts]
+humidity_publisher = mypkg.humidity_publisher:main
+humidity_subscriber = mypkg.humidity_subscriber:main

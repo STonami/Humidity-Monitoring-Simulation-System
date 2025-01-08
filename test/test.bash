@@ -13,10 +13,10 @@ if [ $? -ne 0 ]; then
 fi
 
 source install/setup.bash
-source ~/.bashrc
+source $dir/.bashrc
 
 timeout 20 ros2 launch mypkg humidity_monitoring.launch.py > /tmp/mypkg.log 2>&1
-if grep 'humidity_subscriber' /tmp/mypkg.log; then
+if grep -q 'humidity_subscriber' /tmp/mypkg.log; then
     echo "Test passed!"
     exit 0
 else

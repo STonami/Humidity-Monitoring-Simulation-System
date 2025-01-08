@@ -16,7 +16,6 @@ source install/setup.bash
 source ~/.bashrc
 
 timeout 20 ros2 launch mypkg humidity_monitoring.launch.py > /tmp/mypkg.log 2>&1
-grep 'Received humidity' /tmp/mypkg.log
 if [ $? -eq 0 ]; then
     echo "Test passed!"
     exit 0

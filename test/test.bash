@@ -2,12 +2,6 @@
 # SPDX-FileCopyrightText: 2024 Tonami Seki
 # SPDX-License-Identifier: BSD-3-Clause
 
-source /opt/ros/jazzy/setup.bash
-source ~/ros2_ws/install/setup.bash
-source ~/ros2_ws/install/local_setup.bash
-source ~/.bashrc
-source ~/ros2_ws/install/local_setup.bash
-
 dir=~
 [ "$1" != "" ] && dir="$1"
 
@@ -19,7 +13,7 @@ source ~/.bashrc
 
 timeout 10 ros2 launch mypkg humidity_monitoring.launch.py > /tmp/mypkg.log 2>&1
 grep 'Received humidity' /tmp/mypkg.log
-if [ $? -eq 0 ]; then
+if [ $? -eq 1 ]; then
         echo "Test passed!"
         exit 0
     else

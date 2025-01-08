@@ -2,6 +2,9 @@
 # SPDX-FileCopyrightText: 2024 Tonami Seki
 # SPDX-License-Identifier: BSD-3-Clause
 
+source /opt/ros/jazzy/setup.bash
+source ~/ros2_ws/install/setup.bash
+
 dir=~
 [ "$1" != "" ] && dir="$1"
 

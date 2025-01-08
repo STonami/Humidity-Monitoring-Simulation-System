@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/badge/license-BSD--3--Clause-green?style=flat)](https://github.com/STonami/mypkg?tab=BSD-3-Clause-1-ov-file)
 
 ## 概要
-このパッケージは、ROS2 を用いて湿度データの監視と異常値の検出を行うシステムです。
+このパッケージは、ROS2 を用いて湿度データの監視と異常値の検出をシミュレーションするシステムです。
 
 - **メイン機能**: 湿度データの生成および異常値検出
 - **補助機能**: テスト用ノード

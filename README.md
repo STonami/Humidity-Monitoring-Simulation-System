@@ -52,17 +52,6 @@ ros2 run mypkg humidity_subscriber
 [INFO] [1736051197.424672914] [humidity_subscriber]: Received: Humidity is 45.32%
 ```
 
-## 実行環境
-
-### 必要なソフトウェア
-- Python
-  - テスト済みバージョン: 3.7 ～ 3.10
-- ROS2
-  - テスト済みバージョン: Foxy, Humble
-
-### テスト環境
-- Ubuntu 24.04 LTS
-
 ## 実行手順
 
 **ノードを実行する**
@@ -81,6 +70,17 @@ ros2 topic echo /humidity_data
 ```bash
 ros2 topic echo /humidity_alerts
 ```
+
+## 実行環境
+
+### 必要なソフトウェア
+- Python
+  - テスト済みバージョン: 3.7 ～ 3.10
+- ROS2
+  - テスト済みバージョン: Foxy, Humble
+
+### テスト環境
+- Ubuntu 24.04 LTS
 
 ## ライセンス
 このソフトウェアパッケージは、3条項BSDライセンスの下, 再頒布および使用が許可されます。

@@ -1,6 +1,7 @@
 # Humidity Monitoring Simulation System
 
 [![test](https://github.com/STonami/mypkg/actions/workflows/test.yml/badge.svg)](https://github.com/STonami/mypkg/actions/workflows/test.yml)
+[![license](https://img.shields.io/badge/license-BSD--3--Clause-green?style=flat)](https://github.com/STonami/mypkg?tab=BSD-3-Clause-1-ov-file)
 
 ## 概要
 このパッケージは、ROS2 を用いて湿度データの監視と異常値の検出を行うシステムです。

@@ -1,3 +1,4 @@
+#!/bin/bash
 # SPDX-FileCopyrightText: 2024 Tonami Seki
 # SPDX-License-Identifier: BSD-3-Clause
 
